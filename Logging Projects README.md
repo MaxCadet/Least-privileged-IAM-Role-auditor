@@ -79,17 +79,17 @@ cd least-privilege-iam-auditor
 ### 2. Create the S3 bucket for reports
 
 ```bash
-aws s3 mb s3://your-iam-audit-reports-bucket
+aws s3 mb s3://iam-audit-reports-max
 ```
 
 ### 3. Create the SNS topic and subscribe your email
 
 ```bash
-aws sns create-topic --name iam-audit-alerts
+aws sns create-topic --iam-audit-reports-max
 aws sns subscribe \
-  --topic-arn arn:aws:sns:us-east-1:YOUR_ACCOUNT_ID:iam-audit-alerts \
+  --topic-arn arn:aws:sns:us-east-2:166665178530:IAM-audit-alerts \
   --protocol email \
-  --notification-endpoint your@email.com
+  --notification-endpoint Cadetmax68@gmail.com
 ```
 
 ### 4. Deploy the Lambda function
@@ -97,9 +97,9 @@ aws sns subscribe \
 ```bash
 zip function.zip lambda_function.py
 aws lambda create-function \
-  --function-name IAMAuditor \
-  --runtime python3.11 \
-  --role arn:aws:iam::YOUR_ACCOUNT_ID:role/LambdaIAMAuditorRole \
+  --function-name MyLambdaSecRole \
+  --runtime python3.12 \
+  --role arn:aws:iam::166665178530:role/MyLambdaSecRole \
   --handler lambda_function.lambda_handler \
   --zip-file fileb://function.zip
 ```
@@ -108,18 +108,21 @@ aws lambda create-function \
 
 ```bash
 aws lambda update-function-configuration \
-  --function-name IAMAuditor \
-  --environment "Variables={S3_BUCKET=your-iam-audit-reports-bucket,SNS_TOPIC_ARN=arn:aws:sns:us-east-1:YOUR_ACCOUNT_ID:iam-audit-alerts}"
+  --function-name MyLambdaSecRole \
+  --environment "Variables={iam-audit-reports-max,SNS_TOPIC_ARN=arn:aws:sns:us-east-1:166665178530:iam-audit-alerts}"
 ```
 
-### 6. Schedule with EventBridge (daily at 8am UTC)
+### 6. Schedule with EventBridge (daily at 9am UTC)
 
 ```bash
 aws events put-rule \
   --name DailyIAMAudit \
-  --schedule-expression "cron(0 8 * * ? *)"
+  --schedule-expression "cron(0 9 * * ? *)"
 ```
-
+```bash
+aws events put-targets \
+  --rule DailyIAMAduit \
+  --targets "Id"="1","Arn"="arn:aws:lambda:us-east-2:166665178530:function:LambdaSecRole"
 ---
 
 ## 📂 Project Structure
@@ -161,9 +164,9 @@ The Lambda execution role needs the following permissions:
 
 ```json
 {
-  "audit_timestamp": "2025-04-03T08:00:00Z",
-  "total_roles_scanned": 12,
-  "total_users_scanned": 5,
+  "audit_timestamp": "2026-04-03T08:00:00Z",
+  "total_roles_scanned": 8,
+  "total_users_scanned": 1,
   "violations": [
     {
       "type": "role",
