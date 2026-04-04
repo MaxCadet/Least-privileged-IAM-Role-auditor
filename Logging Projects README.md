@@ -3,7 +3,7 @@
 > Automated AWS security auditing tool that scans IAM roles and users for overly permissive policies and delivers scheduled alert reports.
 
 ![AWS](https://img.shields.io/badge/AWS-Lambda%20%7C%20SNS%20%7C%20S3%20%7C%20EventBridge%20%7C%20IAM-orange?logo=amazonaws)
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
