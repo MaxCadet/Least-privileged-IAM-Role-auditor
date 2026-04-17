@@ -44,7 +44,7 @@ EventBridge (Scheduled Rule)
 - **Scheduled audits** — Runs automatically on a configurable daily or weekly EventBridge schedule
 - **S3 report storage** — Saves timestamped JSON audit reports to an S3 bucket for historical tracking
 - **SNS notifications** — Sends an email alert summarizing flagged roles and users to subscribed recipients
-- **Serverless architecture** — Fully event-driven with no persistent infrastructure to manage
+- **Serverless architecture** — Fully event-driven with no persistent infrastructure to manage 
 
 ---
 
