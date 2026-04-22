@@ -161,7 +161,7 @@ The Lambda execution role needs the following permissions:
 
 ## 📊 Sample Audit Report (JSON)
 
-```json
+```json 
 {
   "audit_timestamp": "2026-04-03T08:00:00Z",
   "total_roles_scanned": 8,
@@ -185,7 +185,7 @@ The Lambda execution role needs the following permissions:
 
 ---
 
-## 💡 What I Learned
+## 💡 What I Learned 
 
 - How to programmatically analyze IAM policy documents using **boto3**
 - Structuring **least privilege** execution roles for Lambda functions
