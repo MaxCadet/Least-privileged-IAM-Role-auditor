@@ -37,7 +37,6 @@ EventBridge (Scheduled Rule)
 ```
 
 ---
-
 ## ✨ Features
 
 - **Wildcard detection** — Flags IAM policies containing `"Action": "*"` or `"Resource": "*"`
@@ -196,7 +195,7 @@ The Lambda execution role needs the following permissions:
 
 ---
 
-## 🔭 Future Improvements
+## 🔭 Future Improvement
 
 - [ ] Add support for scanning inline policies (not just managed policies)
 - [ ] Integrate with AWS Security Hub for centralized findings
