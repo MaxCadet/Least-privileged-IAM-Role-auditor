@@ -14,6 +14,8 @@ The **Least Privilege IAM Auditor** is a serverless security tool that automatic
 
 This project reflects a real-world cloud security use case aligned with the **principle of least privilege**, a foundational AWS security best practice.
 
+> **Note:** The Lambda source code is not included in this repository. This README documents the design, the required permissions, and the deployment steps.
+
 ---
 
 ## 🏗️ Architecture
@@ -134,15 +136,11 @@ aws events put-targets \
 
 ---
 
-## 📂 Project Structure
+## 📂 Repository Contents
 
 ```
-least-privilege-iam-auditor/
-├── lambda_function.py       # Core Lambda handler and policy analysis logic
-├── requirements.txt         # Python dependencies
-├── iam_policy/
-│   └── lambda_execution_role.json  # IAM policy for Lambda execution role
-└── README.md
+Least-privileged-IAM-Role-auditor/
+└── README.md   # Design, permissions, deployment steps, and sample report
 ```
 
 ---
